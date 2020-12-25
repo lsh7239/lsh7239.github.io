@@ -11,12 +11,12 @@ categories:
 * 시간 계산은 Timestamp와 BigDeimal을 이용
 * 초당 최대 처리량이 변경되는 시점은 요청의 처리 시작 시간과 완료 시간이므로, 해당 시간에 발생하는 최대 처리량을 비교하면 된다.
 * 아래 세 가지 케이스를 고려 
-1. n-1번째의 응답 완료 시간과 n번째 시작 시간이 1s 미만인 경우
-![texture theme preview](/img/201225_case1.png)
-2. n-1번째의 응답 완료 시간과 n번째 시작 시간이 1s 인 경우
-![texture theme preview](/img/201225_case2.png)
-3. n-2번째의 응답 완료 시간과 n번째 시작 시간이 1s 이며, n-1번째의 시작시간과 응답 완료 시간이 그 사이에 있는 경우
-![texture theme preview](/img/201225_case3.png)
+1. n-1번째의 응답 완료 시간과 n번째 시작 시간이 1s 미만인 경우   
+![texture theme preview](/img/201225_case1.png)   
+2. n-1번째의 응답 완료 시간과 n번째 시작 시간이 1s 인 경우   
+![texture theme preview](/img/201225_case2.png)   
+3. n-2번째의 응답 완료 시간과 n번째 시작 시간이 1s 이며, n-1번째의 시작시간과 응답 완료 시간이 그 사이에 있는 경우   
+![texture theme preview](/img/201225_case3.png)   
 3번 케이스를 고려하지 못해 헤메다가, 테스트 케이스를 만들어서 문제를 해결할 수 있었다.
 
 ```java
