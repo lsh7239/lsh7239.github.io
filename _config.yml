@@ -19,7 +19,7 @@ texture:
   tagline: 희세
   date_format: "%b %-d, %Y"
   style: black
-  showNav: false
+  showNav: true
   showPicker: false
 
   # generate social links in footer
@@ -27,7 +27,14 @@ texture:
     github:  lsh7239
 #     linkedIn: in/thelehhman
     rss: rss
- 
+
+  navigation:
+    - title: Home
+      url: "/home"
+    - title: Page
+      url: "/page"
+    - title: Post
+      url: "/post"
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
@@ -36,7 +43,7 @@ texture:
 
 # Build settings
 # theme: texture
-
+]
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed

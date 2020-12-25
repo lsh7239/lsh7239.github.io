@@ -12,7 +12,7 @@ toc: true
 * 시간 계산은 Timestamp와 BigDeimal을 이용
 * 아래 세 가지 케이스를 고려
 
-```
+```java
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
