@@ -6,35 +6,46 @@ description: > # this means to ignore newlines until "show_exerpts:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 show_excerpts: true # set to true to show excerpts on the homepage
-url: https://lsh7239.github.io
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
   sass_dir: _sass
-
-permalink: /posts/:title/
-texture:
-  title: 적어두기
-  tagline: 희세
+plainwhite:
+  name: 희세
+  tagline: Developer
   date_format: "%b %-d, %Y"
-  style: black
-  showNav: true
-  showPicker: false
-
+  sitemap: true # set to true to generate sitemap.xml content
+  search: true # set to true to enable searchbar
+  dark_mode: true # set to true to add dark mode toggle
+  portfolio_image: "assets/img.png" # the path from the base directory of the site to the image to display (no / at the start)
+  html_lang: "en" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
+  condensed_mobile:
+    #- home
+    - page
+    - post
   # generate social links in footer
   social_links:
+#    twitter: samarsault
     github:  lsh7239
-#     linkedIn: in/thelehhman
-    rss: rss
+#    linkedIn: in/samarsault
+    #rss: rss
+    #dribbble: jekyll
+    #flickr:   jekyll
+    #instagram: jekyll
+    #pinterest: jekyll
+    #youtube: jekyll
+    #facebook: jekyll
+    #soundcloud: jekyll
+    #telegram: jekyll
+    #gitlab: jekyll
 
-  navigation:
-    - title: Home
-      url: "/home"
-    - title: Page
-      url: "/page"
-    - title: Post
-      url: "/post"
+    # Mastodon instances
+    # mastodon:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
@@ -42,7 +53,7 @@ texture:
 # - about.md
 
 # Build settings
-# theme: texture
+theme: plainwhite
 
 plugins:
   - jekyll-seo-tag
