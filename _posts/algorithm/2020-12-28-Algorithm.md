@@ -3,7 +3,6 @@ layout: post
 title: "프로그래머스 코딩테스트 연습문제 - 위장"
 categories:
   - algorithm
-  - java
 ---
 
 문제 링크 : <https://programmers.co.kr/learn/courses/30/lessons/42578>

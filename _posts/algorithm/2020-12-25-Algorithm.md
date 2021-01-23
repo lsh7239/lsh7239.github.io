@@ -3,7 +3,6 @@ layout: post
 title: "2018 KAKAO BLIND RECRUITMENT - 추석 트래픽"
 categories:
   - algorithm
-  - java
 ---
 
 문제 링크 : <https://programmers.co.kr/learn/courses/30/lessons/17676>

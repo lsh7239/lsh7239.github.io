@@ -2,9 +2,7 @@
 layout: post
 title: "Spring Cloud Config 정보를 서비스 중단 없이 반영하기"
 categories:
-  - Spring Cloud Config
-  - Spring Actuator
-  - Spring Boot
+  - spring
 ---
 ### @RefreshScope와 Actuator를 활용하기
 
