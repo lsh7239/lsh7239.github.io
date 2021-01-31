@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021 KAKAO BLIND RECRUITMENT - 메뉴 리뉴"
+title: "2021 KAKAO BLIND RECRUITMENT - 메뉴 리뉴얼"
 categories:
   - algorithm
 ---
