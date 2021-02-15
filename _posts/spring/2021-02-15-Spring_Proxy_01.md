@@ -10,6 +10,7 @@ categories:
 기존 프로젝트에서 특정 클래스가 호출되면 무조건 로그를 출력하도록 했었는데, 이를 Proxy 패턴으로 구현한다면 다음과 같이 구현된다.
 
 > Proxy 가 수행될 대상 인터페이스이다. 이 인터페이스는 logic()이라는 클래스가 실행될 때 마다 data 내용을 로그로 출력하도록 한다.
+
 ```java
 public interface TestService{
     public void logic(Data data);
@@ -17,6 +18,7 @@ public interface TestService{
 ```
 
 > 실제 업무가 수행되는 클래스를 생성한다.
+
 ```java
 @Service
 public class TestLogic implements TestService{
@@ -29,6 +31,7 @@ public class TestLogic implements TestService{
 ```
 
 > Proxy 클래스를 생성한다. 이 Proxy 클래스에서 data 내용을 로그로 출력 하는 공통 기능을 수행한 후 실제 업무 로직을 수행할 수 있도록 까지 구현되어 있다.
+
 ```java
 @Primary
 @Component
