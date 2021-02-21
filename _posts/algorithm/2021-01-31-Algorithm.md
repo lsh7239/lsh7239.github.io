@@ -13,7 +13,9 @@ categories:
 
 가장 먼저 각 메뉴별로 가능한 모든 조합을 만들도록 했다. 
 메뉴들이 오름차순으로 주어지지 않아 오름차순으로 문자열을 정렬한 후, 조합을 만들도록 했다.
-```java
+
+
+```
 for(String order : orders){
     String[] o = order.split("");
     Arrays.sort(o);
@@ -21,8 +23,12 @@ for(String order : orders){
     combination(o,count, visit, 0,"", maps);
 }
 ```
+
+
 아래는 조합을 만드는 데 사용한 코드이다. 주어진 코스의 갯수만큼 조합이 만들어지면 map에 크기와 문자열을 담을 수 있도록 했다.
-```java
+
+
+```
 private void combination(String[] order, int count, boolean[] visit, int index, String result, Map<String,Integer> maps) {
     if(result.length() == count){
         int value = maps.getOrDefault(result,0);
@@ -37,9 +43,13 @@ private void combination(String[] order, int count, boolean[] visit, int index, 
     }
 }
 ```
+
+
 메뉴에 대한 조합이 완료되었다면, map에 담은 key와 value를 Collectors.groupingBy() 메소드를 통해 Value, 
 즉 조합 문자열이 나온 갯수에 따라 가장 큰 Value의 값을 구하도록 했다.
-```java
+
+
+```
 Optional<Map.Entry<Integer,List<Map.Entry<String,Integer>>>> optional = maps.entrySet().stream()
         .collect(Collectors.groupingBy(Map.Entry::getValue))
         .entrySet().stream().max(Comparator.comparing(Map.Entry::getKey));
