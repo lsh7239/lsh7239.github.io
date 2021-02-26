@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "연습문제 - 124 나라의 숫"
+title: "연습문제 - 124 나라의 숫자"
 categories:
   - algorithm
 ---
