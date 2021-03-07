@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "정렬"
+title: "정렬(1) - 삽입정렬, 선택정렬, 버블정렬"
 categories:
   - algorithm
 ---
