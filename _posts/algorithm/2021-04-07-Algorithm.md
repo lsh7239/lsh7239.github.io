@@ -9,11 +9,14 @@ categories:
 
 ## 문제해결
 옛날에 풀었던 문제였는데, 처음보다 두번째 푼 오늘 방법이 훨씬 시간도 오래 걸리고 메모리도 많이 사용했다.
+
 - 처음에 푼 방법
+
 ![texture theme preview](/img/algorithm/210407_old.png)   
 
 - 오늘 푼 방법
-![texture theme preview](/img/algorithm/210407_/new.png)   
+
+![texture theme preview](/img/algorithm/210407_new.png)   
 
 > 시간이 짧으면 2ms ~ 190ms 까지 증가했다.
 
