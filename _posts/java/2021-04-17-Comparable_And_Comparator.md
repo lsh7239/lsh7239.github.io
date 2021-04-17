@@ -12,6 +12,7 @@ compareTo(), compare() 모두 0이면 같고, 양수일 수록 뒤 쪽에 위치
 
 ### Comparable
 - 사용자 정의 클래스에서 상속 받아 사용 가능하다.
+
 ```java
 class Person implements Comparable<Person>{
     
@@ -32,6 +33,7 @@ compareTo() 메소드는 다음과 같은 특징을 가진다.
 
 ### Comparator
 - 자체적으로 비교를 하기 위한 규칙 클래스를 만들기 위해 사용한다.
+
 ```java
 class DescendingComparator implements Comparator<Person>{
     // 내림차순
@@ -52,6 +54,7 @@ compare() 메소드는 다음과 같은 특징을 가진다.
 
 ### 알고리즘 풀 때 사용되는 경우
 - **Comparable**은 PriorityQueue를 구현하여 우선순위가 높은 값을 구해야할 때 많이 사용된다.
+
 ```java
 public static void main(String[] args){
     PriorityQueue<Person> queue = new PriorityQueue<>();
@@ -70,6 +73,7 @@ class Person implements Comparable<Person>{
 ```
 
 - **Comparator**는 stream().sorted() 시 람다식으로 가장 많이 구현했다.
+
 ```java
 public static void main(String[] args){
     List<Person> list = new ArrayList<>();
@@ -77,6 +81,7 @@ public static void main(String[] args){
 }
 ```
 Comparator를 보면 다음과 같이 함수형 프로그래밍을 작성할 수 있다는 어노테이션 **@FunctionalInterface**가 붙어 있다.
+
 ```java
 @FunctionalInterface
 public interface Comparator<T> {
