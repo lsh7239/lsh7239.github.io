@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spring의 DispatcherServlet과 Spring Boot에서 동작 과정"
+title: "Spring MVC와 DispatcherServlet"
 categories:
   - spring
 ---
@@ -42,4 +42,66 @@ MVC 아키텍처는 프론트 컨트롤러 패턴과 함께 사용된다.
 - 후처리기에서 후속 작업 진행 후 HttpServletResponse 에 담긴 최종 결과를 서블릿 컨테이너에 돌려준다.
 - 서블릿 컨테이너는 HttpServletResponse에 담긴 정보를 HTTP 응답으로 만들어서 클라이언트에 전송한다.
 
-### Spring Boot가 API 요청을 받는 과정
+아래는 DispatcherServlet의 동작 소스다. 
+HttpServletRequest를 전달받고 resolver 등을 셋업한 뒤, doDispatcher()를 호출한다.
+
+```java
+@Override
+protected void doService(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+    ...
+    try {
+        // 해당 부분에서 request 요청을 처리한다.
+        doDispatch(request, response);
+    }
+
+}
+```
+
+doDispatch() 메소드 부분이다. 위에서 설명한 동작들이 수행된다.
+
+```java
+protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    ...
+    try {
+        try {
+
+            // 1. HandlerMapping, HandlerAdapter로부터 HttpServletRequest 요청에 해당하는 Controller method()를 가져온다.
+            // Determine handler for the current request.
+            mappedHandler = getHandler(processedRequest);
+            
+            ...
+
+            // Determine handler adapter for the current request.
+            HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
+            
+            ...
+
+            // 2. Controller 메소드가 실행된다. 
+            // 서비스 레이어 계층과 레파지토리 레이어 계층의 메소드를 호출함으로써 모델과 뷰 이름을 리턴한다.
+            // Actually invoke the handler.
+            mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+            
+            ...
+            
+            // 3. view resolver에서 뷰이름에 해당하는 view를 찾아 모델 매핑한다.
+            applyDefaultViewName(processedRequest, mv);
+            mappedHandler.applyPostHandle(processedRequest, response, mv);
+        }
+        catch (Exception ex) {
+            dispatchException = ex;
+        }
+        catch (Throwable err) {
+            // As of 4.3, we're processing Errors thrown from handler methods as well,
+            // making them available for @ExceptionHandler methods and other scenarios.
+            dispatchException = new NestedServletException("Handler dispatch failed", err);
+        }
+        
+        // 4. HttpServletResponse에 데이터를 담아 return 한다.
+        processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
+    }
+    ...
+}
+```
+
+₩
